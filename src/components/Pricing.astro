@@ -1,0 +1,29 @@
+---
+// src/components/Pricing.astro
+// ¡Ahora este componente es súper simple!
+import PricingWidget from './PricingWidget.jsx';
+import ButtonBookNow from './ButtonBookNow.astro';
+---
+
+<section id="pricing" class="relative w-full bg-neutral-900 text-white py-26">
+  <div class="w-full max-w-7xl mx-auto">
+    <div class="px-6">
+      <h2 class="text-5xl md:text-6xl font-extrabold text-center mb-8 text-[#F7D449]">
+        Precios Flexibles
+      </h2>
+      <p class="text-xl text-center mb-8 text-neutral-200">
+        La primera clase es <span class="text-[#F7D449] font-bold">totalmente gratuita</span>.
+      </p>
+    </div>
+    
+    <div class="opacity-0 transition-opacity duration-300" id="pricing-widget-container">
+      <PricingWidget client:load />
+    </div>
+
+    <div class="flex justify-center mt-10">
+      <ButtonBookNow text="¡AGENDATE!" variant="pricing" className="px-14 py-4" />
+    </div>
+
+    
+  </div>
+</section>

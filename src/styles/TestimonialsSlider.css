@@ -1,0 +1,20 @@
+/* src/components/TestimonialsSlider.css */
+
+
+/*
+  Aplicamos los colores y estilos a Swiper usando sus CSS Custom Properties.
+  Esta es la forma recomendada por la documentación de Swiper para tematizar.
+*/
+.testimonial-swiper-container .swiper {
+  /* Color amarillo para el círculo de paginación activo */
+  --swiper-pagination-color: #F7D449;
+
+  /* Color para los círculos inactivos (hex de neutral-700) */
+  --swiper-pagination-bullet-inactive-color: #404040;
+  --swiper-pagination-bullet-inactive-opacity: 1; /* Hacemos los puntos inactivos totalmente opacos */
+
+  /* Importante: Swiper con effect-cards necesita overflow: hidden.
+     Lo movemos al contenedor del slide para que la sombra no se corte.
+  */
+  overflow: visible;
+}

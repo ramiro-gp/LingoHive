@@ -1,0 +1,24 @@
+---
+// src/components/Header.astro
+import LogoBee from './LogoBee.jsx';
+import ButtonBookNow from './ButtonBookNow.astro';
+import HeaderIsland from './HeaderIsland.jsx';
+---
+
+<HeaderIsland client:load>
+  <a href="#home" class="scroll-to-top flex items-center cursor-none" slot="logo">
+    <span class="ml-2 text-2xl md:text-3xl font-bold text-neutral-200 hover:text-white" data-bright>LingoHive</span>
+    <LogoBee 
+      client:visible
+      className="w-[40px] h-[40px] md:w-[45px] md:h-[45px]" 
+    />
+  </a>
+
+  <div slot="buttonBookNowDesktop">
+    <ButtonBookNow text="AGENDAR" variant="header" />
+  </div>
+
+  <div slot="buttonBookNowMobile">
+    <ButtonBookNow text="AGENDAR GRATIS" variant="mobile" />
+  </div>
+</HeaderIsland>

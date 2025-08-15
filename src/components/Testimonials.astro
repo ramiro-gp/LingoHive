@@ -1,0 +1,95 @@
+---
+import TestimonialsSlider from './TestimonialsSlider.jsx';
+
+const testimonials = [
+  {
+    author: "Nikolas Spitznagel",
+    linkedinUrl: "https://www.linkedin.com/in/nikolas-spitznagel-2007521ab/",
+    imageBase: "/pics/1",
+    text: "Intenté preparar el Duolingo solo, pero no me fue bien. Entonces empecé clases y fue lo mejor, porque practicamos mucho los ejercicios y conversamos un montón. Además, las clases se adaptaban a mis horarios. Al final aprobé el examen y pude certificar mi inglés.",
+    universityLogo: "/logosIconos/itba.png",
+    companyLogo: null
+  },
+  {
+    author: "Guillermo Schettino",
+    linkedinUrl: "https://www.linkedin.com/in/guillermo-schettino-7b29692a/",
+    imageBase: "/pics/4",
+    text: "El enfoque en la conversación y la pronunciación con temas de mi interés ha sido un gran diferenciador. Me siento mucho más seguro para hablar de tecnología y datos en inglés!",
+    universityLogo: "/logosIconos/uba2.png",
+    companyLogo: "/logosIconos/flockit.png"
+  },
+  {
+    author: "Leonel Scalise",
+    linkedinUrl: "https://www.linkedin.com/in/leonel-scalise-b62690185/",
+    imageBase: "/pics/2",
+    text: "LingoHive fue clave para aprobar mi examen de inglés Duolingo. Me ayudó a organizar y expresar mis ideas, superando el nivel que creía tener. Su apoyo fue fundamental, dándome la confianza y el impulso para alcanzar mis metas. ¡Lo recomiendo totalmente!",
+    universityLogo: "/logosIconos/itba.png",
+    companyLogo: null
+  },
+  {
+    author: "Solange Soler",
+    linkedinUrl: "https://www.linkedin.com/in/solangemadelen/",
+    imageBase: "/pics/6",
+    text: "Las clases con Marcos fueron excelentes por su profesionalismo y trato personalizado. Sentí un verdadero compromiso con mi progreso y en solo 15 días mejoré mi puntaje de Duolingo de 90 a 100, logrando aprobar. Fue una experiencia excelente!",
+    universityLogo: "/logosIconos/itba.png",
+    companyLogo: null
+  },
+  {
+    author: "Santiago Urquiza",
+    linkedinUrl: "https://www.linkedin.com/in/surquiza7/",
+    imageBase: "/pics/3",
+    text: "Empecé con LingoHive bastante incómodo y en poco tiempo me pude soltar muchísimo, hablar mano a mano con alguien de habla nativa me puso a prueba y me preparo para mi viaje a USA. En cuanto vuelvo pienso retomar al mismo ritmo!",
+    universityLogo: "/logosIconos/itba.png",
+    companyLogo: null
+  },
+  {
+    author: "Gerardo Calavia",
+    linkedinUrl: "https://www.linkedin.com/in/gerardo-calavia/",
+    imageBase: "/pics/5",
+    text: "Estaba buscando el puntapié para arrancar a profesionalizarme y soltarme un poco con el inglés. Encontré un espacio distendido, donde podíamos enfocarnos en una charla fluida sobre temas misceláneos y específicos para soltarme y estar cómodo",
+    universityLogo: "/logosIconos/uba2.png",
+    companyLogo: "/logosIconos/ifts.png"
+  },
+];
+---
+
+<!-- overflow-x-hidden porque TestimonialSlider genera scroll horizontal en celu -->
+<section id="testimonials" class="bg-neutral-900 py-16 sm:py-24 lg:px-6 overflow-x-hidden">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl px-4 lg:text-5xl font-extrabold text-center mb-12 md:mb-16 text-[#F7D449]">
+      Lo que dicen nuestros alumnos
+    </h2>
+
+    <div class="flex items-center justify-center  overflow-hidden">
+        <TestimonialsSlider testimonials={testimonials} client:load />
+    </div>
+    
+  </div>
+</section>
+
+<style is:global>
+  
+  /* Estilos para la paginación del slider de testimonios */
+  .testimonial-swiper-container .swiper-pagination {
+    position: static; /* La ponemos debajo del slider */
+    margin-top: 2rem; /* Espacio entre el slider y los puntos */
+  }
+
+  .testimonial-swiper-container .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #6b7280; /* Color gris para los puntos inactivos */
+    opacity: 0.8;
+    transition: background-color 0.3s;
+    cursor: none !important;
+  }
+
+  .testimonial-swiper-container .swiper-pagination-bullet-active {
+    background-color: #F7D449; /* Color amarillo para el punto activo */
+  }
+
+  .link-testimonio-linkedin{
+    cursor: pointer;
+  }
+ 
+</style>

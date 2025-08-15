@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import WhyUsv2 from '../components/WhyUsv2.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Footer from '../components/Footer.astro';
+import CustomCursor from '../components/CustomCursor.jsx';
+import '../styles/global.css'; 
+---
+
+<Layout title="LingoHive">
+  <Header />
+  <Hero id="home" class="sticky top-0 z-0" />
+  <main class="relative z-10">
+    <div class="relative bg-[#F7D449] overflow-hidden rounded-t-[3rem] md:rounded-t-[6rem]">
+      <WhyUsv2 />
+    </div>
+    <Pricing />
+    <Testimonials />
+    <Footer />
+  </main>
+
+  <CustomCursor client:load />
+</Layout>

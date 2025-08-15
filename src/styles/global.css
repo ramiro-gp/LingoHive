@@ -1,0 +1,83 @@
+/* global.css */
+@import "tailwindcss";
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+
+html, body {
+  background-color: black; /* #171717 */
+  cursor: none;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+
+/* El contenedor principal ahora solo posiciona, no tiene estilo visible */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(0, 0) scale(1);
+  transition: transform 0.2s ease-out;
+}
+
+/* Estilos para la flecha SVG */
+.custom-cursor svg path {
+  fill: black; /* Relleno amarillo */
+  stroke: #F7D449;  /* Borde negro */
+  stroke-width: 1.5px; /* Ancho del borde */
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+/* Esto se mantiene igual para ocultar el cursor real */
+a, button, input, label, [data-interactive] {
+  cursor: none;
+}
+
+::selection {
+  background-color: #F7D449;
+  color: black;
+}
+
+
+/* Header underline effect */
+.underline-slider {
+  display: inline-block;
+  position: relative;
+}
+
+.underline-slider::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f7d54a;
+  transition: transform 0.25s ease-out;
+  transform-origin: bottom right;
+}
+
+.underline-slider:hover::after , .underline-slider:focus::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+

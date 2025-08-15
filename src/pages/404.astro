@@ -1,0 +1,49 @@
+---
+import ErrorLayout from '../layouts/ErrorLayout.astro';
+import LogoBee from '../components/LogoBee.jsx';
+import CustomCursor from '../components/CustomCursor.jsx';
+---
+
+<ErrorLayout title="404: Página No Encontrada - LingoHive">
+  <main class="w-full h-screen flex flex-col items-center justify-center text-center p-6">
+    
+    <div class="logo-container mb-8">
+      <LogoBee size="lg" client:visible />
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-black text-[#F7D449] tracking-tighter">
+      404
+    </h1>
+
+    <p class="text-xl md:text-2xl text-neutral-300 mt-4 max-w-lg">
+      ¡Bzz! Parece que esta página se ha perdido en la colmena.
+    </p>
+
+    <div class="mt-10">
+      <a href="/" class="cursor-none inline-block bg-[#F7D449] text-black font-bold py-3 px-10 rounded-full hover:scale-105 transition-transform">
+        Volver al Inicio
+      </a>
+    </div>
+
+  </main>
+
+  <CustomCursor client:load />
+
+</ErrorLayout>
+
+<style>
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  .logo-container {
+    animation: pulse 4s ease-in-out infinite;
+  }
+</style>

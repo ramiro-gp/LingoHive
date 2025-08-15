@@ -1,0 +1,49 @@
+---
+import InteractiveButtonGroup from './InteractiveButtonGroup.jsx';
+import FocusCards from './FocusCards.astro';
+import { Globe } from './Globe';
+---
+
+<section id="whyus" data-section-theme="light">
+  <div class="relative rounded-t-[3rem] md:rounded-t-[6rem] w-full min-h-[80vh] bg-[#F7D449] text-neutral-900 flex flex-col items-center py-32 gap-16 overflow-hidden">
+    
+    <!-- Contenedor con padding horizontal general -->
+    <div class="w-full px-4 md:px-8 flex flex-col items-center gap-16">
+      <!-- Título principal -->
+      <div class="text-center z-10 max-w-4xl">
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-6 md:mb-10">¿Querés hablar inglés de verdad?</h2>
+        <p class="flex items-center justify-center gap-x-3 text-xl md:text-4xl font-medium max-w-xl md:max-w-2xl mx-auto">
+          <span>Nativos al alcance de un click</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/>
+            <path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/>
+          </svg>
+        </p>
+      </div>
+
+      <!-- Botones interactivos -->
+      <div class="z-10">
+        <InteractiveButtonGroup client:load />
+      </div>
+    </div>
+
+    <!-- Tarjetas -->
+    <div class="w-full max-w-screen-xl">
+      <FocusCards />
+    </div>
+
+    <!-- Globo -->
+    <div 
+      class="absolute bottom-0 right-0 z-0 
+             translate-x-1/3 -translate-y-100 xl:-translate-y-40 
+             w-[600px] h-[600px] 
+             md:w-[700px] md:h-[700px] 
+             lg:w-[900px] lg:h-[900px] 
+             xl:w-[1100px] xl:h-[1100px]" 
+      style="pointer-events: none;"
+    >
+      <Globe client:load /> 
+    </div>
+  </div>
+</section>
+
