@@ -23,6 +23,7 @@ import HeaderIsland from './HeaderIsland.jsx';
 </HeaderIsland>
 
 <noscript>
+  <style is:global>#header button[aria-controls="mobile-list"] { display: none; }</style>
   <nav aria-label="Navegación sin JavaScript" class="fixed inset-x-4 top-20 z-50 rounded-2xl bg-neutral-900 px-4 py-2 text-sm text-white flex flex-wrap justify-center gap-x-4 gap-y-2 lg:hidden">
     <a href="#home">Home</a><a href="#whyus">Nosotros</a><a href="#pricing">Precios</a><a href="#testimonials">Testimonios</a><a href="#sobre-la-demo">Sobre esta demo</a>
   </nav>
