@@ -30,7 +30,7 @@ export default function InteractiveButtonGroup() {
   // Hook para manejar el ciclo de vida del temporizador
   useEffect(() => {
     // Si el carrusel está pausado, no hacemos nada.
-    if (isPaused) {
+    if (isPaused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
@@ -53,9 +53,11 @@ export default function InteractiveButtonGroup() {
         onMouseEnter={() => setIsPaused(true)}
         // Cuando el mouse sale, lo reanudamos
         onMouseLeave={() => setIsPaused(false)}
+        onFocusCapture={() => setIsPaused(true)}
+        onTouchStart={() => setIsPaused(true)}
       >
         {features.map((feature, index) => (
-          <AnimateOnScroll client:load y={60} delay={index * 0.2}>
+          <AnimateOnScroll key={feature.text} y={60} delay={index * 0.2}>
                 <InteractiveButton
                   key={index}
                   text={feature.text}

@@ -9,19 +9,24 @@ import ButtonBookNow from './ButtonBookNow.astro';
   <div class="w-full max-w-7xl mx-auto">
     <div class="px-6">
       <h2 class="text-5xl md:text-6xl font-extrabold text-center mb-8 text-[#F7D449]">
-        Precios Flexibles
+        Precios históricos
       </h2>
       <p class="text-xl text-center mb-8 text-neutral-200">
-        La primera clase es <span class="text-[#F7D449] font-bold">totalmente gratuita</span>.
+        Estos importes pertenecían a la propuesta original de LingoHive y ya no están vigentes.
       </p>
     </div>
     
-    <div class="opacity-0 transition-opacity duration-300" id="pricing-widget-container">
+    <div id="pricing-widget-container">
       <PricingWidget client:load />
     </div>
+    <noscript>
+      <div class="px-6 mt-8 text-center text-neutral-200">
+        <p>También se ofrecían planes grupales: Grupal Duo ($44.990 / mes) y Grupal de Tres ($34.990 / mes). Precios históricos, sin vigencia actual.</p>
+      </div>
+    </noscript>
 
     <div class="flex justify-center mt-10">
-      <ButtonBookNow text="¡AGENDATE!" variant="pricing" className="px-14 py-4" />
+      <ButtonBookNow text="Sobre esta demo" variant="pricing" className="px-14 py-4" />
     </div>
 
     

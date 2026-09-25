@@ -2,7 +2,7 @@
 
 import React , { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards, Pagination, Navigation } from 'swiper/modules';
+import { EffectCards, Pagination, Navigation, Keyboard, A11y } from 'swiper/modules';
 import AnimateOnScroll from './AnimateOnScroll';
 
 import 'swiper/css';
@@ -56,24 +56,26 @@ export default function TestimonialsSlider({ testimonials }) {
       <div className="flex items-center justify-center gap-x-14 lg:gap-x-20">
 
         {/* 2. Botón de navegación izquierdo (fuera del carrusel) */}
-        <button className="testimonial-button-prev hidden md:block text-white hover:text-[#F7D449] transition text-4xl font-bold">
+        <button type="button" aria-label="Testimonio anterior" className="testimonial-button-prev hidden md:block text-white hover:text-[#F7D449] transition text-4xl font-bold">
           ‹
         </button>
 
         {/* 3. El carrusel se mantiene casi igual, pero ya no necesita ser 'relative' */}
         <div ref={swiperContainerRef} className="testimonial-swiper-container ">
           <Swiper
-            modules={[EffectCards, Pagination, Navigation]}
+            modules={[EffectCards, Pagination, Navigation, Keyboard, A11y]}
             effect="cards"
             grabCursor={true}
             pagination={{ clickable: true }}
+            keyboard={{ enabled: true, onlyInViewport: true }}
+            a11y={{ enabled: true, prevSlideMessage: 'Testimonio anterior', nextSlideMessage: 'Testimonio siguiente', paginationBulletMessage: 'Ir al testimonio {{index}}' }}
             navigation={{
               // La configuración de Swiper no cambia, ya que busca las clases en todo el documento
               nextEl: '.testimonial-button-next',
               prevEl: '.testimonial-button-prev'
             }}
             loop={false}
-            className="w-[90vw] max-w-xs h-[34rem] lg:max-w-xl lg:h-88"
+            className="w-[90vw] max-w-xs h-[34rem] lg:max-w-xl lg:h-96"
           >
             {testimonials.map((t, i) => (
               <SwiperSlide key={i} className='swiper-slide-cursor-oculto'>
@@ -101,16 +103,16 @@ export default function TestimonialsSlider({ testimonials }) {
                           <h3 className="text-xl font-bold group-hover:underline">{t.author}</h3>
                           <LinkedInIcon />
                         </a>
-                        <blockquote className="text-sm text-neutral-100 ">
+                        <blockquote className="text-sm lg:text-base lg:leading-snug text-neutral-100">
                           “{t.text}”
                         </blockquote>
                       </div>
                       <div className="flex items-center gap-6 mt-4">
                         {t.universityLogo && (
-                          <img src={t.universityLogo} loading="lazy" alt="Logo de Universidad" className="h-12 object-contain" />
+                          <img src={t.universityLogo} loading="lazy" alt="" className="h-12 object-contain" />
                         )}
                         {t.companyLogo && (
-                          <img src={t.companyLogo} loading="lazy" alt="Logo de Empresa" className="h-12 object-contain" />
+                          <img src={t.companyLogo} loading="lazy" alt="" className="h-12 object-contain" />
                         )}
                       </div>
                     </div>
@@ -122,7 +124,7 @@ export default function TestimonialsSlider({ testimonials }) {
         </div>
 
         {/* 4. Botón de navegación derecho (fuera del carrusel) */}
-        <button className="testimonial-button-next hidden md:block text-white hover:text-[#F7D449] transition text-4xl font-bold">
+        <button type="button" aria-label="Testimonio siguiente" className="testimonial-button-next hidden md:block text-white hover:text-[#F7D449] transition text-4xl font-bold">
           ›
         </button>
 

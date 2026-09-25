@@ -13,6 +13,7 @@ export default function PricingCard({ plan, planType, isHighlighted }) {
 
   // Animaciones de hover con GSAP para un control total.
   const handleMouseEnter = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     gsap.to(cardRef.current, {
       y: -10, // Se mueve 10px hacia arriba
       //scale: 1.02, // Se agranda un 2%
@@ -22,6 +23,7 @@ export default function PricingCard({ plan, planType, isHighlighted }) {
   };
 
   const handleMouseLeave = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     gsap.to(cardRef.current, {
       y: 0,
       //scale: 1,
@@ -61,10 +63,9 @@ export default function PricingCard({ plan, planType, isHighlighted }) {
       <div className="text-right mt-auto">
         {plan.title === 'Clase de Prueba' ? (
           // Si es la clase de prueba, muestra un botón
-          <a href="https://calendly.com/marcterrera/english-sparring-free-1-hour-session" target="_blank" 
-          className="bg-neutral-900 text-[#F7D449] font-bold py-3 px-6 rounded-full duration-300">
+          <span className="inline-block bg-neutral-900 text-[#F7D449] font-bold py-3 px-6 rounded-full">
             GRATIS
-          </a>
+          </span>
         ) : (
           // Para las demás tarjetas, muestra el precio
           <p className={`text-xl font-semibold ${priceColor}`}>{plan.price}</p>

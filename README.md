@@ -1,48 +1,27 @@
-# Astro Starter Kit: Basics
+# LingoHive · demo histórica
+
+Esta es una demo pública de un sitio desarrollado para LingoHive. La academia ya no está en actividad. Los precios, la propuesta de clases y los testimonios se conservan como registro del proyecto original y no son una oferta vigente.
+
+**Desarrollo web:** Ramiro Garcia · [ramita.dev](https://ramita.dev)
+**Diseño e identidad visual:** Juan Galache de Toro
+
+Las fotografías, citas, perfiles y logos de los testimonios originales se publican con autorización vigente. La demo no contiene reservas, contactos comerciales, formularios, backend ni analytics.
+
+## Stack
+
+Astro 5 con salida estática, React en islas, Tailwind CSS 4, GSAP, Three.js y Swiper. La tipografía Poppins se carga desde Google Fonts.
+
+## Desarrollo local
+
+Se usa Node 24.x y npm.
 
 ```sh
-npm create astro@latest -- --template basics
+npm ci
+npm run dev
+npm run build
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+El build genera `dist/`. Para Vercel: instalación `npm ci`, build `npm run build`, salida `dist`, Node 24.x, sin adapter. La URL canónica y las tarjetas sociales se generan a partir de `VERCEL_PROJECT_PRODUCTION_URL`, que Vercel debe exponer en el entorno de build. En local, sin esa variable, se omiten las URLs absolutas.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+La demo usa `noindex,follow` y no genera sitemap. La ruta pública es `/`, con página `404.html`.

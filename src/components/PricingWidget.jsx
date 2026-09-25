@@ -24,12 +24,7 @@ export default function PricingWidget() {
   const plansToShow = planType === 'individual' ? individualPlans : grupalPlans;
 
   useEffect(() => {
-    const container = document.getElementById('pricing-widget-container');
-    if (container) {
-      container.classList.remove('opacity-0');
-    }
-    
-    if (plansContainerRef.current) {
+    if (plansContainerRef.current && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const cards = plansContainerRef.current.children;
       gsap.fromTo(cards,
         { y: -40, opacity: 0 },
@@ -44,13 +39,13 @@ export default function PricingWidget() {
     }
   }, [planType]);
 
-  
+
 
   const containerClasses = `
     flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 py-4
      lg:justify-center px-2
-    ${planType === 'individual' 
-      ? '' 
+    ${planType === 'individual'
+      ? ''
       : 'md:justify-center lg:gap-12'
     }
   `;
@@ -62,14 +57,18 @@ export default function PricingWidget() {
         <div className="flex justify-center">
           <div className="flex border-3 border-[#F7D449] rounded-full p-1 shadow-md">
             <button
+              type="button"
               onClick={() => setPlanType('individual')}
-              className={`cursor-none w-30 px-4 py-2 rounded-full text-lg font-medium transition-colors duration-300 ${planType === 'individual' ? 'bg-[#F7D449] text-black' : 'text-white'}`}
+              aria-pressed={planType === 'individual'}
+              className={`w-30 px-4 py-2 rounded-full text-lg font-medium transition-colors duration-300 ${planType === 'individual' ? 'bg-[#F7D449] text-black' : 'text-white'}`}
             >
               Individual
             </button>
             <button
+              type="button"
               onClick={() => setPlanType('grupal')}
-              className={`cursor-none w-30 px-4 py-2 rounded-full text-lg font-medium transition-colors duration-300 ${planType === 'grupal' ? 'bg-[#F7D449] text-black' : 'text-white'}`}
+              aria-pressed={planType === 'grupal'}
+              className={`w-30 px-4 py-2 rounded-full text-lg font-medium transition-colors duration-300 ${planType === 'grupal' ? 'bg-[#F7D449] text-black' : 'text-white'}`}
             >
               Grupal
             </button>
@@ -85,8 +84,8 @@ export default function PricingWidget() {
         >
           {plansToShow.map((plan, index) => (
             <div key={plan.title} className="flex-shrink-0 snap-center w-auto mt-10 flex justify-center">
-              <PricingCard 
-                plan={plan} 
+              <PricingCard
+                plan={plan}
                 planType={planType}
                 isHighlighted={planType === 'individual' && index === 0}
               />

@@ -1,14 +1,15 @@
 // Este componente ya no decide por sí mismo, obedece las props.
 export default function InteractiveButton({ text, children, isExpanded, onInteraction }) {
   return (
-    <div
+    <button
+      type="button"
       // 3. Cuando hay una interacción, solo avisa al componente padre.
       onMouseEnter={onInteraction}
       onFocus={onInteraction}
-      tabIndex="0"
-      role="button"
+      onClick={onInteraction}
+      aria-label={text}
       aria-expanded={isExpanded}
-      className="cursor-none flex items-center bg-neutral-900 rounded-full transition-all duration-300 ease-in-out text-[#F7D449] hover:shadow-lg hover:shadow-black/20 focus:outline-none"
+      className="flex items-center bg-neutral-900 rounded-full transition-all duration-300 ease-in-out text-[#F7D449] hover:shadow-lg hover:shadow-black/20"
     >
       <div className="h-14 w-14 flex-shrink-0 flex items-center justify-center">
         {children}
@@ -24,6 +25,6 @@ export default function InteractiveButton({ text, children, isExpanded, onIntera
           {text}
         </span>
       </div>
-    </div>
+    </button>
   );
 }

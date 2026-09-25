@@ -12,7 +12,6 @@
 
 html, body {
   background-color: black; /* #171717 */
-  cursor: none;
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   margin: 0;
@@ -47,8 +46,30 @@ body::-webkit-scrollbar {
 }
 
 /* Esto se mantiene igual para ocultar el cursor real */
-a, button, input, label, [data-interactive] {
-  cursor: none;
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.has-custom-cursor, html.has-custom-cursor body,
+  html.has-custom-cursor a, html.has-custom-cursor button,
+  html.has-custom-cursor input, html.has-custom-cursor label,
+  html.has-custom-cursor [data-interactive] { cursor: none; }
+}
+
+:is(a, button, input, [tabindex]):focus-visible {
+  outline: 3px solid #F7D449;
+  outline-offset: 4px;
+}
+
+#whyus, #pricing, #testimonials, #sobre-la-demo {
+  scroll-margin-top: 110px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .custom-cursor { display: none !important; }
 }
 
 ::selection {

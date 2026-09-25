@@ -5,10 +5,10 @@ import CustomCursor from '../components/CustomCursor.jsx';
 ---
 
 <ErrorLayout title="404: Página No Encontrada - LingoHive">
-  <main class="w-full h-screen flex flex-col items-center justify-center text-center p-6">
-    
+  <main class="w-full min-h-screen flex flex-col items-center justify-center text-center p-6">
+
     <div class="logo-container mb-8">
-      <LogoBee size="lg" client:visible />
+      <LogoBee size="lg" />
     </div>
 
     <h1 class="text-6xl md:text-8xl font-black text-[#F7D449] tracking-tighter">
@@ -20,7 +20,7 @@ import CustomCursor from '../components/CustomCursor.jsx';
     </p>
 
     <div class="mt-10">
-      <a href="/" class="cursor-none inline-block bg-[#F7D449] text-black font-bold py-3 px-10 rounded-full hover:scale-105 transition-transform">
+      <a href="/" class="inline-block bg-[#F7D449] text-black font-bold py-3 px-10 rounded-full hover:scale-105 transition-transform">
         Volver al Inicio
       </a>
     </div>
@@ -45,5 +45,8 @@ import CustomCursor from '../components/CustomCursor.jsx';
 
   .logo-container {
     animation: pulse 4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-container { animation: none; }
   }
 </style>

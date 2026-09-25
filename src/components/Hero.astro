@@ -16,12 +16,12 @@ const { class: className, ...rest } = Astro.props;
 
   <Starfield client:load />
 
-  <main class="relative z-10 flex flex-col items-center justify-center w-full h-full p-4 text-center text-white">
+  <div class="relative z-10 flex flex-col items-center justify-center w-full h-full p-4 text-center text-white">
     <div class="flex flex-col sm:flex-row items-center justify-center mb-4">
       <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white" data-bright>
         LingoHive
       </h1>
-      <LogoBee client:visible
+      <LogoBee
         className="w-[120px] h-[120px] sm:w-[80px] sm:h-[80px] md:w-[120px] md:h-[120px] lg:w-[150px] lg:h-[150px]"
       />
     </div>
@@ -29,9 +29,11 @@ const { class: className, ...rest } = Astro.props;
     <AnimatedWords client:visible />
 
     
+    <p class="mt-5 max-w-lg text-sm sm:text-base text-neutral-200">Demo de un proyecto anterior · LingoHive ya no está en actividad</p>
+
     <ButtonBookNow 
       className="mt-10 mb-3"
-      text="Agendar clase gratuita"
+      text="Sobre esta demo"
       variant="hero"
     />
 
@@ -51,8 +53,8 @@ const { class: className, ...rest } = Astro.props;
         />
       </svg>
       
-      <span class="text-neutral-200"><span class="text-[#F7D449]">Gratis:</span> 1 Hora + Recursos</span>
+      <span class="text-neutral-200">Propuesta original: 1 hora + recursos</span>
     </div>
 
-  </main>
+  </div>
 </section>

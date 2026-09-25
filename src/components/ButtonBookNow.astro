@@ -1,8 +1,8 @@
 ---
-const { 
-  text = "Agendar clase gratuita", 
-  variant = "hero", 
-  className = "" 
+const {
+  text = "Sobre esta demo",
+  variant = "hero",
+  className = ""
 } = Astro.props;
 
 let classes = "px-4 py-2 text-md font-semibold rounded-full transition-all duration-300";
@@ -16,8 +16,8 @@ if (variant === "hero") {
   classes += " block bg-[#f7d54a] text-neutral-900 font-semibold py-2 rounded-full w-full text-center transition-colors duration-300";
 }
 classes += ` ${className}`;
-const href = "https://calendly.com/marcterrera/english-sparring-free-1-hour-session";
+const href = "#sobre-la-demo";
 ---
-<a href={href} class={classes} target="_blank" rel="noopener noreferrer">
+<a href={href} class={classes}>
   <span>{text}</span>
 </a>

@@ -11,25 +11,35 @@ const words = [
 
 export default function AnimatedWords() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return;
     const intervalId = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % words.length);
     }, 2000); // Cambia cada 2 segundos
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [reducedMotion]);
 
   return (
     // 2. Se simplificó el contenedor principal.
-    <div className="flex flex-wrap items-center justify-center text-3xl font-light tracking-wide">
-      <span className="text-neutral-200 mr-2">
+    <div className="flex flex-wrap items-center justify-center text-3xl font-light tracking-wide" aria-label="Hablá inglés con confianza">
+      <span aria-hidden="true" className="text-neutral-200 mr-2">
         Hablá inglés
       </span>
       
-      <div className="relative inline-block h-[1.5em] min-w-[280px] overflow-hidden align-middle text-[#F7D449] font-bold text-left">
+      <div aria-hidden="true" className="relative inline-block h-[1.5em] min-w-[280px] overflow-hidden align-middle text-[#F7D449] font-bold text-left">
         {words.map((word, index) => {
-          const isCurrent = index === currentIndex;
+          const isCurrent = index === (reducedMotion ? 0 : currentIndex);
           const wasPrevious = index === (currentIndex - 1 + words.length) % words.length;
 
           let transform = 'translateY(100%)';
