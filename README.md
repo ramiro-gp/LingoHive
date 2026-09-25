@@ -22,6 +22,6 @@ npm run build
 npm run preview
 ```
 
-El build genera `dist/`. Para Vercel: instalación `npm ci`, build `npm run build`, salida `dist`, Node 24.x, sin adapter. La URL canónica y las tarjetas sociales se generan a partir de `VERCEL_PROJECT_PRODUCTION_URL`, que Vercel debe exponer en el entorno de build. En local, sin esa variable, se omiten las URLs absolutas.
+El build genera `dist/`. `vercel.json` fija Astro, instalación `npm ci`, build `npm run build` y salida `dist`; `package.json` declara Node 24.x. No se usa adapter. La URL canónica y las tarjetas sociales se generan a partir de `VERCEL_PROJECT_PRODUCTION_URL`, que Vercel debe exponer en el entorno de build. En local, sin esa variable, se omiten las URLs absolutas.
 
 La demo usa `noindex,follow` y no genera sitemap. La ruta pública es `/`, con página `404.html`.
